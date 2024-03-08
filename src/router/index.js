@@ -7,18 +7,20 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: home,
+      children: [
+        {
+          path: '',
+          name: 'base',
+          component: () => import('../pages/layouts/base/index.vue')
+        }
+      ]
     },
     {
-      path:'/hacker-login',
-      name: 'Hacker Login',
-      component: ()=> import('../pages/hacker/login/index.vue')
-    },
-    {
-      path:'/customer-login',
+      path: '/login',
       name: 'Customer Login',
-      component: ()=> import('../pages/customer/login/index.vue')
-    },
+      component: () => import('../pages/layouts/authentication/login/index.vue')
+    }
     // {
     //   path: '/about',
     //   name: 'about',
